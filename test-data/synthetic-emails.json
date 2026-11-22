@@ -1,0 +1,194 @@
+{
+  "synthetic": true,
+  "note": "Synthetische Testdaten für die Demo. Alle Personen, Firmen und Adressen sind erfunden. Die Domain example.com ist für Beispiele reserviert (RFC 2606). Nur an ein eigenes Test-Postfach senden.",
+  "test_calendar": {
+    "timezone": "Europe/Zurich",
+    "blocked_slots": [
+      {
+        "date": "2026-12-09",
+        "start": "10:00",
+        "end": "11:00",
+        "title": "Blocker (synthetisch) für T04"
+      }
+    ]
+  },
+  "emails": [
+    {
+      "id": "syn-01",
+      "test_case": "T01",
+      "synthetic": true,
+      "from": "Lea Beispiel <lea.beispiel@example.com>",
+      "to": "demo-inbox@example.com",
+      "subject": "DRINGEND: Online-Shop nicht erreichbar",
+      "body": "Guten Tag, seit heute Morgen ist unser Online-Shop nicht erreichbar. Kundinnen und Kunden können keine Bestellungen abschliessen. Bitte melden Sie sich so rasch wie möglich. Freundliche Grüsse, Lea Beispiel, Muster AG",
+      "expected": {
+        "category": "urgent",
+        "route": "Urgent",
+        "calendar_status": null,
+        "approval": "keine",
+        "final_status": "urgent_notified"
+      }
+    },
+    {
+      "id": "syn-02",
+      "test_case": "T02, T11",
+      "synthetic": true,
+      "from": "Jonas Muster <jonas.muster@example.com>",
+      "to": "demo-inbox@example.com",
+      "subject": "Rückfrage zur Offerte",
+      "body": "Grüezi, vielen Dank für die Offerte. Ist die Einrichtung im Preis enthalten oder wird sie separat verrechnet? Freundliche Grüsse, Jonas Muster",
+      "expected": {
+        "category": "needs_reply",
+        "route": "Needs reply",
+        "calendar_status": "not_checked",
+        "approval": "T02: ✅ Freigabe / T11: ❌ Ablehnung",
+        "final_status": "T02: sent / T11: rejected"
+      }
+    },
+    {
+      "id": "syn-03",
+      "test_case": "T03",
+      "synthetic": true,
+      "from": "Sara Probe <sara.probe@example.com>",
+      "to": "demo-inbox@example.com",
+      "subject": "Termin für ein kurzes Gespräch",
+      "body": "Guten Tag, hätten Sie am Dienstag, 8. Dezember 2026, von 14:00 bis 15:00 Uhr Zeit für ein kurzes Gespräch zu unserem Projekt? Freundliche Grüsse, Sara Probe, Beispiel GmbH",
+      "expected": {
+        "category": "needs_reply",
+        "route": "Needs reply",
+        "calendar_status": "free",
+        "approval": "✅ Freigabe",
+        "final_status": "sent; ein Kalendereintrag 2026-12-08 14:00–15:00"
+      }
+    },
+    {
+      "id": "syn-04",
+      "test_case": "T04",
+      "synthetic": true,
+      "from": "Jonas Muster <jonas.muster@example.com>",
+      "to": "demo-inbox@example.com",
+      "subject": "Call am Mittwoch?",
+      "body": "Hallo, passt Ihnen Mittwoch, 9. Dezember 2026, um 10:00 Uhr für einen Call von einer Stunde? Beste Grüsse, Jonas Muster",
+      "expected": {
+        "category": "needs_reply",
+        "route": "Needs reply",
+        "calendar_status": "conflict",
+        "approval": "✅ Freigabe",
+        "final_status": "sent; kein Kalendereintrag; Entwurf bittet um einen anderen Zeitpunkt"
+      }
+    },
+    {
+      "id": "syn-05",
+      "test_case": "T05",
+      "synthetic": true,
+      "from": "Sara Probe <sara.probe@example.com>",
+      "to": "demo-inbox@example.com",
+      "subject": "Kurzer Austausch nächste Woche",
+      "body": "Guten Tag, können wir nächste Woche einmal telefonieren? Freundliche Grüsse, Sara Probe",
+      "expected": {
+        "category": "needs_reply",
+        "route": "Needs reply",
+        "calendar_status": "not_checked",
+        "approval": "nach Prüfung",
+        "final_status": "Entwurf fragt nach passenden Tagen und Zeiten"
+      }
+    },
+    {
+      "id": "syn-06",
+      "test_case": "T06",
+      "synthetic": true,
+      "from": "Lea Beispiel <lea.beispiel@example.com>",
+      "to": "demo-inbox@example.com",
+      "subject": "Besprechung am Donnerstag",
+      "body": "Guten Tag, ginge es am Donnerstag, 10. Dezember 2026, um 09:30 Uhr für eine Besprechung? Freundliche Grüsse, Lea Beispiel",
+      "expected": {
+        "category": "needs_reply",
+        "route": "Needs reply",
+        "calendar_status": "free",
+        "approval": "✅ Freigabe",
+        "final_status": "sent; ein Kalendereintrag 2026-12-10 09:30–10:30 (60 Minuten Standarddauer)"
+      }
+    },
+    {
+      "id": "syn-07",
+      "test_case": "T07",
+      "synthetic": true,
+      "from": "Verband Beispiel <newsletter@example.com>",
+      "to": "demo-inbox@example.com",
+      "subject": "Newsletter Dezember: Neuigkeiten aus dem Verband",
+      "body": "Liebe Mitglieder, in dieser Ausgabe: Rückblick auf das Herbsttreffen, neue Weiterbildungsangebote und Termine im kommenden Jahr. Dieser Newsletter ist rein informativ.",
+      "expected": {
+        "category": "informational",
+        "route": "Informational",
+        "calendar_status": null,
+        "approval": "keine",
+        "final_status": "informational_logged"
+      }
+    },
+    {
+      "id": "syn-08",
+      "test_case": "T08",
+      "synthetic": true,
+      "from": "Gewinnspiel Beispiel <promo@example.com>",
+      "to": "demo-inbox@example.com",
+      "subject": "Sie haben gewonnen!",
+      "body": "Herzlichen Glückwunsch! Klicken Sie jetzt, um Ihren Preis abzuholen. Angebot nur heute gültig.",
+      "expected": {
+        "category": "ignore",
+        "route": "Ignore",
+        "calendar_status": null,
+        "approval": "keine",
+        "final_status": "ignored"
+      }
+    },
+    {
+      "id": "syn-09",
+      "test_case": "T09",
+      "synthetic": true,
+      "duplicate_of": "syn-07",
+      "from": "Verband Beispiel <newsletter@example.com>",
+      "to": "demo-inbox@example.com",
+      "subject": "Newsletter Dezember: Neuigkeiten aus dem Verband",
+      "body": "Gleiche Nachricht wie syn-07 mit derselben message_id. Nur reproduzierbar, wenn der Trigger dieselbe Nachricht erneut abholt oder mit fixierten Testdaten.",
+      "expected": {
+        "category": null,
+        "route": "Stopp nach Duplikatprüfung",
+        "calendar_status": null,
+        "approval": "keine",
+        "final_status": "keine neue Zeile im Sheet"
+      }
+    },
+    {
+      "id": "syn-10",
+      "test_case": "T10",
+      "synthetic": true,
+      "from": "Jonas Muster <jonas.muster@example.com>",
+      "to": "demo-inbox@example.com",
+      "subject": "Fwd: Terminanfrage",
+      "body": "---------- Weitergeleitete Nachricht ---------- Von: Sara Probe <sara.probe@example.com> Betreff: Terminanfrage",
+      "expected": {
+        "category": "needs_reply",
+        "route": "Needs reply",
+        "calendar_status": "not_checked",
+        "approval": "nach Prüfung",
+        "final_status": "Entwurf bittet um die vollständige Nachricht; kein Datum erfunden"
+      }
+    },
+    {
+      "id": "syn-11",
+      "test_case": "T13",
+      "synthetic": true,
+      "from": "Sara Probe <sara.probe@example.com>",
+      "to": "demo-inbox@example.com",
+      "subject": "Kurzer Termin am Freitag",
+      "body": "Guten Tag, hätten Sie am Freitag, 11. Dezember 2026, um 15:00 Uhr Zeit für ein Gespräch von 30 Minuten? Freundliche Grüsse, Sara Probe",
+      "expected": {
+        "category": "needs_reply",
+        "route": "Needs reply",
+        "calendar_status": "free",
+        "approval": "✅ Freigabe",
+        "final_status": "unklar (E5): Kalender geprüft 15:00–16:00, Prompt enthält widersprüchliche Regeln zur Endzeit"
+      }
+    }
+  ]
+}

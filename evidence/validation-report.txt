@@ -1,0 +1,32 @@
+n8n AI Inbox Triage Demo - validation report
+generated: 2026-11-22 08:09
+tool: scripts/validate.py
+workflows: workflows/tool-calendar-create-event.json, workflows/gmail-triage.json
+private sources: 2 provided for comparison (not part of this repository; paths and hashes not recorded)
+personal deny tokens: 3 provided (values not recorded)
+note: automatic checks are not proof that no sensitive data remains; a manual review is required.
+
+PASS    S3    [workflows/tool-calendar-create-event.json] allowlist of keys respected
+PASS    S6    [workflows/tool-calendar-create-event.json] nodes 3/3, edges 2/2
+PASS    S6    [workflows/tool-calendar-create-event.json] 0 $('...') references, unresolved: 0
+PASS    S6    [workflows/tool-calendar-create-event.json] node names, order and connections identical to source
+PASS    S7    [workflows/tool-calendar-create-event.json] only approved map paths differ from source
+PASS    S8    [workflows/tool-calendar-create-event.json] active=false, availableInMCP=false
+PASS    S9    [workflows/tool-calendar-create-event.json] placeholder counts match the approved map
+PASS    S5    [workflows/tool-calendar-create-event.json] 16-character id-like values: 0
+PASS    S3    [workflows/gmail-triage.json] allowlist of keys respected
+PASS    S6    [workflows/gmail-triage.json] nodes 43/43, edges 45/45
+PASS    S6    [workflows/gmail-triage.json] 8 $('...') references, unresolved: 0
+PASS    S6    [workflows/gmail-triage.json] node names, order and connections identical to source
+PASS    S6    [workflows/gmail-triage.json] sub-workflow reference names the TOOL workflow
+PASS    S7    [workflows/gmail-triage.json] only approved map paths differ from source
+PASS    S8    [workflows/gmail-triage.json] active=false, availableInMCP=false
+PASS    S9    [workflows/gmail-triage.json] placeholder counts match the approved map
+PASS    S5    [workflows/gmail-triage.json] 16-character id-like values: 0
+PASS    S2b   repository files identical to a private source: 0
+PASS    S4    20 source values checked in 19 files; none found
+PASS    S5    pattern scan of 19 files; no findings
+PASS    S10   11 synthetic e-mails; all flagged, example.com only
+PASS    S10   sheet-template.csv header (14 columns) equals the logging schema of the workflow
+
+result: PASS (0 failed checks)
